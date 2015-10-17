@@ -50,10 +50,7 @@ class Deck(object):
 
 	def draw_card(self):
 		card_count = len(self.deck)
-		print card_count
-
 		if (card_count == 0):
-			print "reshuffling"
 			self.reshuffle()
 		drawn_card = self.deck.pop()
 		self.discard.append(drawn_card)
