@@ -1,5 +1,3 @@
-from space import Space
-
 class Board(object):
 	
 	def __init__(self):
@@ -55,3 +53,12 @@ class Board(object):
 
 	def get_space_from_position(self,position):
 		return self.board[position]
+
+
+class Space(object):
+	
+	def __init__(self, color,label):
+		#super(Space, self).__init__()
+		self.color = color
+		self.label = label
+	

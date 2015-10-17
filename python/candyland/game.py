@@ -2,8 +2,8 @@ from player import Player
 from board import Board
 from deck import Deck
 import random
-
-class CandyLand(object):
+ 
+class Game(object):
 	def __init__(self,count):
 		
 		if count > 4:
