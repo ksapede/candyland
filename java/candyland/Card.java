@@ -1,4 +1,4 @@
-package candyland.Card;
+package candyland;
 
 public class Card {
 	String color;

@@ -1,4 +1,4 @@
-package candyland.Space;
+package candylands;
 
 public class Space {
 	String color;

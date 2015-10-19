@@ -1,5 +1,6 @@
-package candyland.Deck;
+package candyland;
 import candyland.Card;
+import java.util.*;
 
 public class Deck {
 	List<Card> deck;

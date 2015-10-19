@@ -1,4 +1,4 @@
-package candyland.Board;
+package candyland;
 import candyland.Space;
 
 public class Board {

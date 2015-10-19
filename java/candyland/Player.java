@@ -1,9 +1,9 @@
-package candyland.Game;
+package candyland;
 
 public class Player {
 	String name;
-	Int position;
-	Bool stuck;
+	int position;
+	boolean stuck;
 
 	public Player(String player_name) {
 		this.name = player_name;
