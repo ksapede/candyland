@@ -3,9 +3,9 @@ package candyland;
 public class Card {
 	String color;
 	String label;
-	Int move_count;
+	int move_count;
 
-	public Card(String card_color, String card_label, String card_move) {
+	public Card(String card_color, String card_label, int card_move) {
 		this.color = card_color;
 		this.label = card_label;
 		this.move_count = card_move;
@@ -19,7 +19,7 @@ public class Card {
 			return "Double " + this.color;
 		}
 		else {
-			return self.label;
+			return this.label;
 		}
 	}
 }
