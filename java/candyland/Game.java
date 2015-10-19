@@ -65,10 +65,16 @@ public class Game {
 	}
 
 	private void move_token(Player p, Card card) {
-		boolean stuck = false;
+		
 		int current_postion = p.position;
 		for (int m = 0; m < card.move_count;m++) {
+			boolean stuck = false;
 			int next_space;
+
+			if (p.stuck) {
+				System.out.println ("Stuck on " + m + 1);
+				break;
+			}
 
 			if (card.color.equals("Pink")) {
 				next_space = 0;
@@ -107,6 +113,7 @@ public class Game {
 			p.position = current_postion;
 			//System.out.println("Changing stuck to " + p.stuck);
 			p.stuck = stuck;
+
 		}
 
 	}
