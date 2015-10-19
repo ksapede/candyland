@@ -1,4 +1,4 @@
-package candylands;
+package candyland;
 
 public class Space {
 	String color;
