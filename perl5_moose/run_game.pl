@@ -2,11 +2,14 @@ use strict;
 
 use CandyLand;
 my $players;
-do {
+#do {
 	print "Number of players (4 max)?\n";
 
 	$players = <STDIN>;
-} while ($players > 4); 
+	chomp($players);
+#} while ($players > 4);
 
-my $game = CandyLand->new($players);
+print "\n\n\n$players\n\n\n\n"; 
+
+my $game = CandyLand->new(player_count => $players);
 $game->play_game();

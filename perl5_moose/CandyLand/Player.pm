@@ -1,16 +1,22 @@
 package CandyLand::Player;
+
 use strict;
+use Moose;
 
 
-sub new($) {
-	my $class = shift;
-    my $self = {};
-    bless ($self, $class);
-	$self->{name} = shift;
-	$self->{position} = -1;
-	$self->{stuck} = 0;
-	return $self;
-}
+has name => (
+	is => 'ro'
+	);
+has position => (
+	is => 'rw',
+	default => -1
+	);
+has stuck => (
+	is => 'rw',
+	default => 0
+	);
+
+
 
 1;
 

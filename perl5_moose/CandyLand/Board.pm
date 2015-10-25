@@ -90,7 +90,7 @@ sub add($$$) {
 			push (@{$self->{board}},$space);
 			
 		}
-		print "space $self->{board_length} is $space->{color} $space->{label}\n";
+		#print "space $self->{board_length} is $space->{color} $space->{label}\n";
 		$self->{color_index} = $n + 1;
 		$self->{board_length}++;
 	}

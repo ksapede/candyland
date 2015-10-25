@@ -3,20 +3,32 @@ use strict;
 
 use CandyLand::Card;
 use List::Util qw(shuffle);
+use Moose;
 
+has deck => (
+	is => 'ro',
+	isa => 'ArrayRef',
+	default => sub { [] }
+	);
 
-sub new {
-	my $class = shift;
-	my $self = {};
-	bless($self,$class);
+has discard => (
+	is => 'ro',
+	isa => 'ArrayRef',
+	default => sub { [] }
+	);
 
-	$self->{deck} = [];
-	$self->{discard} = [];
+sub BUILD {
+	#my $class = shift;
+	my $self = shift;
+	#bless($self,$class);
+
+	#$self->{deck} = [];
+	#$self->{discard} = [];
 
 	$self->build_deck();
 	$self->shuffle_deck();
 
-	return $self;
+	#return $self;
 }
 
 sub build_deck {

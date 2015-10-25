@@ -1,31 +1,52 @@
 package CandyLand;
 use strict;
+use Moose;
+use Moose::Util::TypeConstraints;
 
 use CandyLand::Player;
 use CandyLand::Board;
 use CandyLand::Deck;
 use List::Util qw(shuffle);
 
-sub new($) {
-	my $class = shift;
-	my $count = shift;
-	return if $count > 4;
-	my $self = {};
-	bless($self,$class);
 
-	$self->{winner} = "None";
-	$self->{player_count} = $count;
+
+subtype 'Count',
+	=> as 'Int'
+	=> where {$_ <= 4}
+	=> message {'Sorry, only 4 players allowed'};
+
+has winner => (
+	is => 'ro',
+	isa => 'Str',
+	default => "None"
+	);
+
+has player_count => (
+	is => 'ro',
+	isa => 'Count',
+	required => 1
+	
+	);
+
+has players => (
+	is => 'ro',
+	isa => 'ArrayRef',
+	default => sub { [] }
+	);
+
+sub BUILD {
+	my $self = shift;
 
 	my @game_peices = ("Red","Blue","Green","Yellow");
 	for my $i (1 .. $self->{player_count}) {
 		my $peice = shift @game_peices;
-		push (@{$self->{players}}, CandyLand::Player->new($peice));
+		push (@{$self->{players}}, CandyLand::Player->new(name => $peice));
 	}
 	$self->{board} = CandyLand::Board->new();
 	
 	$self->{card_deck} = CandyLand::Deck->new();
 	
-	return $self;
+	#return $self;
 
 }
 
@@ -88,7 +109,7 @@ sub move_token($$) {
 		}
 
 		
-		my @remaining_board = @{$self->{board}->{board}};
+		@remaining_board = @{$self->{board}->{board}};
 
 		my $remaining_spaces = @remaining_board;
 		#print "aiming for $self->{board}->{board_length}\n";
