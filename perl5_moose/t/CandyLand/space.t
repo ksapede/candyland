@@ -1,8 +1,8 @@
 use Test::More;
 use CandyLand::Space;
 
-my $first_space = CandyLand::Space->new("Blue");
-my $second_space = CandyLand::Space->new("Orange", "Sticky");
+my $first_space = CandyLand::Space->new(color => "Blue");
+my $second_space = CandyLand::Space->new(color => "Orange", label => "Sticky");
 
 isa_ok($first_space,"CandyLand::Space", "new returns an instance of space");
 is ($first_space->{color}, "Blue", "new sets the right color when passed only a color");

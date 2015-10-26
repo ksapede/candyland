@@ -2,7 +2,7 @@ use Test::More;
 
 use CandyLand::Player;
 
-my $player = CandyLand::Player->new("Brad");
+my $player = CandyLand::Player->new(name => "Brad");
 
 isa_ok($player, "CandyLand::Player", "new creates a player");
 is ($player->{name},"Brad","new sets the correct name");

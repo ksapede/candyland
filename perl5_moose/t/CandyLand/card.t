@@ -2,8 +2,8 @@ use Test::More;
 
 use CandyLand::Card;
 
-my $first_card = CandyLand::Card->new("Pink", "Mr Mint",1);
-my $second_card = CandyLand::Card->new("Orange","",1);
+my $first_card = CandyLand::Card->new(color => "Pink", label => "Mr Mint", move_count => 1);
+my $second_card = CandyLand::Card->new(color => "Orange", label => "", move_count => 1);
 
 isa_ok($first_card,"CandyLand::Card", "new creates a card");
 
